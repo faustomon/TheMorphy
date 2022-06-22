@@ -3,5 +3,4 @@ from AppFunciones import views
 from AppFunciones.views import *
 
 urlpatterns = [
-    path("", inicio, name="Inicio"),
 ]
