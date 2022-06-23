@@ -4,4 +4,6 @@ from AppFunciones.views import *
 
 urlpatterns = [
     path("", inicio, name="Inicio"),
+    path("recetas/", recetas, name="recetas"),
+
 ]
