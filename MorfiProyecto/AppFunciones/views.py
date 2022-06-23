@@ -8,3 +8,7 @@ def inicio(self):
     plantilla = loader.get_template("AppFunciones/templates/inicio.html")
     documento = plantilla.render()
     return HttpResponse(documento)
+def restos():
+    plantilla = loader.get_template("AppFunciones/templates/inicio.html")
+    documento = plantilla.render()
+    return HttpResponse(documento)
