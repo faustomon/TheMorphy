@@ -1,12 +1,17 @@
 {% extends "padre.html" %}
 {% load static %}
 {% block contenidoQueCambia %}
-<h1>Recetas</h1>
+
 <div class="container">
+    <h1 class="mx-auto">Recetas</h1>
+
+        <div class="mx-auto" style="width: 400px;">
+            <a class="btn btn-outline-primary m-3" href="{% url 'CrearRecetas' %}"> Nuevo </a>
+        </div>
     <div class="row">
-        <button>
-            <a href="{% url 'CrearRecetas' %}"> nuevo </a>
-        </button>
+
+
+
         <br>
         <br>
         {% for recetas in object_list %}
