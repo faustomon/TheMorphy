@@ -3,7 +3,7 @@ from AppFunciones import views
 from AppFunciones.views import *
 
 urlpatterns = [
-    path("", inicio, name="Inicio"),
-    path("restaurantes/", restaurantes, name="restaurantes"),
+    path("", inicio, name="inicio"),
+    path("restaurantes/", restaurantes.as_view(), name="restaurantes"),
 
 ]
