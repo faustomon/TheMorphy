@@ -13,7 +13,7 @@
         </form>
     </div>
 
-    <a class="btn btn-outline-primary m-3" href="{% url 'Inicio' %}" role="button">Sumar Restaurante</a>
+    <a class="btn btn-outline-primary m-3" href="{% url 'restaurantes_crear' %}" role="button">Sumar Restaurante</a>
 
     <div class="containter text-center m-2">
         <div class="rounded d-inline-block p-3 mb-2 bg-secondary text-white"><b>Restaurantes disponibles</b></div>  
@@ -32,7 +32,7 @@
                     <p class="card-text">{{resto.localidad}}</p>
                     <p class="card-text">{{resto.provincia}}</p>
                     <a class="btn btn-outline-primary m-2" href="{{resto.link}}" role="button">Sitio Web</a>
-                    <a class="btn btn-outline-dark m-2" href="/biblio_detalle/{{resto.id}}/" role="button">Ver detalles</a>
+                    <a class="btn btn-outline-dark m-2" href="/restaurantes_detalle/{{resto.id}}/" role="button">Ver detalles</a>
                     <a class="btn btn-outline-danger m-2" href="{% url 'Inicio' %}" role="button">Eliminar resto</a>
                     </div>
             </div>  

@@ -10,7 +10,7 @@ class Resto_form(forms.ModelForm):
             'direccion': forms.TextInput(attrs={'class':'form-control'}),
             'provincia': forms.TextInput(attrs={'class':'form-control'}),
             'localidad': forms.TextInput(attrs={'class':'form-control'}),
-            'apertura': forms.TextInput(attrs={'class':'form-control'}),
+            'horarios': forms.TextInput(attrs={'class':'form-control'}),
             'link': forms.URLInput(attrs={'class':'form-control', 'placeholder':"http://www.ejemplo.com"}),
             'imagen': forms.URLInput(attrs={'class':'form-control', 'placeholder':"Dirección web de imagen"}),
         }
