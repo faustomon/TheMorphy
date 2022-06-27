@@ -10,9 +10,13 @@
             <div class="card m-2" style="width: 18rem;">
                 <img src="{{object.imagen}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                <h5 class="card-title text-center">{{object.nombre}}</h5>
-                <p class="card-text">{{object.apertura}}</p>
-                <a class="btn btn-outline-primary m-2" href="{{object.link}}" role="button">Sitio Web</a> 
+                    <h5 class="card-title text-center">{{object.nombre}}</h5>
+                    <p class="card-text">{{object.apertura}}</p>
+                    <p class="card-text">{{object.direccion}}</p>
+                    <p class="card-text">{{object.localidad}}</p>
+                    <p class="card-text">{{object.provincia}}</p>
+                <a href="{{object.link}}" role="button">{{object.link}}</a>
+                <br>
             </div>
         </div>
         <a class="btn btn-outline-dark m-2" href="/biblio_editar/{{object.id}}/" role="button">Editar</a>
