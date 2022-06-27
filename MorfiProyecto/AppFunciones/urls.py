@@ -4,7 +4,8 @@ from AppFunciones.views import *
 
 urlpatterns = [
     path("", inicio, name="Inicio"),
-    path("restorauntes/", restos, name="restos"),
-    path("recetas/", recetas, name="recetas"),
+    path("restaurante/", restaurante.as_view(), name="restaurante"),
+    path("restaurantes_crear/", restaurantes_crear.as_view(), name="restaurantes_crear"),
+    path("restaurantes_detalle/<int:pk>/", restaurantes_detalle.as_view(), name="restaurantes_detalle"),
 
 ]
