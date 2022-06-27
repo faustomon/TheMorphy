@@ -1,0 +1,29 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Recetas</h1>
+<div class="container">
+    <div class="row">
+        <button>
+            <a href="{% url 'CrearRecetas' %}"> nuevo </a>
+        </button>
+        <br>
+        <br>
+        {% for recetas in object_list %}
+            <div class="col-3">  
+                <div class="card m-2" style="width: 18rem;">
+                    <img src="{{recetas.imagen_de_comida}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{recetas.nombre_de_receta}}</h5>
+                        <p class="card-text">{{recetas.autor}}</p>
+                        <p class="card-text">{{recetas.ingredientes}}</p>
+                        <p class="card-text">{{recetas.instrucciones}}</p>
+                        <a class="btn btn-outline-dark m-2" href="/recetas/{{recetas.id}}/" role="button">Ver detalles</a>
+                        <a class="btn btn-outline-danger m-2" href="/recetas/eliminar/{{recetas.id}}/" role="button">Eliminar resto</a>
+                    </div>
+                </div>
+            </div> 
+        {%endfor%}
+    </div>
+</div>
+{% endblock %}
