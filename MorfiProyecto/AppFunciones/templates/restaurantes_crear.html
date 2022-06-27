@@ -1,0 +1,43 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block titulo %}Nuevo Resto{% endblock %}
+
+{% block contenidoQueCambia %}
+{% if form %}
+<center>
+    <h5 class="m-5"><b>Ingrese la informacion de un nuevo restaurante:</b></h5>
+    <div class="row m-5">
+        <form action="" method="POST">
+            <table>
+                {% csrf_token %}
+                {{form.as_table}}
+            </table>
+            <br>
+            <input type="submit" value="Agregar">
+        </form>
+    </div>
+</center> 
+{% elif restaurante_nuevo %}
+<center>
+    <h5 class="m-5"><b>Usted ingresó el siguiente restaurante:</b></h5>
+    <div class="col-3 text-center">  
+        <div class="card mx-3" style="width: 18rem;">
+            <img src="{{restaurante_nuevo.imagen}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title text-center">{{restaurante_nuevo.nombre}}</h5>
+                <p class="card-text">{{restaurante_nuevo.horarios}}</p>
+                <p class="card-text">{{restaurante_nuevo.direccion}}</p>
+                <p class="card-text">{{restaurante_nuevo.localidad}}</p>
+                <p class="card-text">{{restaurante_nuevo.provincia}}</p>
+                <br>
+                <a class="btn btn-outline-primary m-2" href="{{restaurante_nuevo.link}}" role="button">Sitio Web</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</center>
+{% endif %}
+
+{% endblock %}
