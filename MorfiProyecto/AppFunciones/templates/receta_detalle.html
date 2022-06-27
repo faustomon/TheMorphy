@@ -1,0 +1,18 @@
+{% extends "padre.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+
+
+<h1>Detalle de receta</h1>
+<p>Nombre: {{recetas.nombre_de_receta}}</p>
+<p>Autor: {{recetas.autor}}</p>
+<p>Ingrdientes: {{recetas.ingredientes}}</p>
+<p>instrucciones: {{recetas.instrucciones}}</p>
+<br>
+<br>
+<a class="btn btn-dark m-2" href="/recetas/edicion/{{recetas.id}}/"> Editar </a>
+<p>
+    <a href="/recetas_lista"> Volver a recetas</a>
+</p>
+{% endblock %}
