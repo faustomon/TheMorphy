@@ -16,21 +16,20 @@
             </form>
 
         {% for resto in object_list %} 
-            <div class="col-3 m-2">  
-                <div class="card m-2" style="width: 18rem;">
-                    <img src="{{resto.imagen}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">{{resto.nombre}}</h5>
-                        <p class="card-text">{{resto.apertura}}</p>
-                        <p class="card-text">{{resto.direccion}}</p>
-                        <p class="card-text">{{resto.localidad}}</p>
-                        <p class="card-text">{{resto.provincia}}</p>
-                        <a href="{{resto.link}}" role="button">{{resto.link}}</a>
-                        <br>
-                        <a class="btn btn-outline-dark m-2" href="/restaurantes_detalle/{{resto.id}}/" role="button">Ver detalles</a>
-                        <a class="btn btn-outline-danger m-2" href="" role="button">Eliminar resto</a>
-                    </div>
-                </div>  
+            <div class="card m-2 mx-auto" style="width: 30rem;">
+                <img src="{{resto.imagen}}" class="card-img-top" alt="Sin imagen">
+                <div class="card-body">
+                    <h5 class="card-title text-center"><b>{{resto.nombre}}</b></h5>
+                    <p class="card-text"><h5><b>Descripcion:</b></h5> {{resto.descripcion}}</p>
+                    <p class="card-text"><b>Dirección:</b> <a class="card-text" href="{{resto.link_direccion}}">{{resto.direccion}}</a></p>
+                    <p class="card-text"><b>Localidad:</b> {{resto.localidad}}</p>
+                    <p class="card-text"><b>Provincia:</b> {{resto.provincia}}</p>
+                    <p class="card-text"><b>Horarios:</b> {{resto.horarios}}</p>
+                <a href="{{resto.link}}" role="button">{{resto.link}}</a>
+                </div>
+                <br></br>
+                <a class="btn btn-outline-dark m-2" href="/restaurantes_detalle/{{resto.id}}/" role="button">Ver detalles</a>
+                <a class="btn btn-outline-danger m-2" href="" role="button">Eliminar resto</a>
             </div>  
         {% endfor %}
         

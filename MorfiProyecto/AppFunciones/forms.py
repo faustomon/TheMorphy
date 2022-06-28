@@ -23,7 +23,9 @@ class Resto_form(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'nombre': forms.TextInput(attrs={'class':'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class':'form-control'}),
             'direccion': forms.TextInput(attrs={'class':'form-control'}),
+            'link_direccion': forms.URLInput(attrs={'class':'form-control', 'placeholder':"Dirección de Maps"}),
             'provincia': forms.TextInput(attrs={'class':'form-control'}),
             'localidad': forms.TextInput(attrs={'class':'form-control'}),
             'horarios': forms.TextInput(attrs={'class':'form-control'}),
