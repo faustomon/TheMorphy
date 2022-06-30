@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block titulo %}{{object.nombre}}{% endblock %}
+
+{% block contenidoQueCambia %}
+<body>
+    <div class="card m-2 mx-auto" style="width: 30rem;">
+        <img src="{{object.imagen}}" class="card-img-top" alt="Sin imagen">
+        <div class="card-body">
+            <h5 class="card-title text-center"><b>{{object.nombre}}</b></h5>
+            <p class="card-text"><h5><b>Descripcion:</b></h5> {{object.descripcion}}</p>
+            <p class="card-text"><b>Dirección:</b> <a class="card-text" href="{{object.link_direccion}}">{{object.direccion}}</a></p>
+            <p class="card-text"><b>Localidad:</b> {{object.localidad}}</p>
+            <p class="card-text"><b>Provincia:</b> {{object.provincia}}</p>
+            <p class="card-text"><b>Horarios:</b> {{object.horarios}}</p>
+        <a href="{{object.link}}" role="button">{{object.link}}</a>
+        </div>
+        <br></br>
+        <a class="btn btn-outline-dark m-2" href="/restaurantes_detalle/{{object.id}}/" role="button">Ver detalles</a>
+        <a class="btn btn-outline-danger m-2" href="" role="button">Eliminar resto</a>
+    </div>  
+    <br>
+    <br>
+</body>
+{% endblock %}
