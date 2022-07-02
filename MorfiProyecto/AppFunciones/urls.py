@@ -15,7 +15,7 @@ urlpatterns = [
     path("restaurantes_crear/", restaurantes_crear.as_view(), name="restaurantes_crear"),
     path("restaurantes_detalle/<int:pk>/", restaurantes_detalle.as_view(), name="restaurantes_detalle"),
     path('restaurantes_eliminar/<int:pk>/', restaurantes_eliminar.as_view(), name='restaurantes_eliminar'),
-    path('restaurante_editar/<int:pk>/', restaurantes_editar.as_view(), name='restaurante_editar'),
+    path('restaurantes_editar/<int:pk>/', restaurantes_editar.as_view(), name='restaurantes_editar'),
     #---------------Criticas-------------
     path("critica/", critica.as_view(), name="critica"),
     path("criticas_crear/", criticas_crear.as_view(), name="criticas_crear"),

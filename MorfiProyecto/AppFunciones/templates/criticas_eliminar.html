@@ -1,10 +1,10 @@
 {% extends "padre.html" %}
 {% load static %}
 
-{% block titulo %}Eliminar {{object.nombre}}{% endblock %}
+{% block titulo %}Eliminar {{object.titulo}}{% endblock %}
 
 {% block contenidoQueCambia %}
-<h3 class="m-2" style="color : #ff0000;"> <b>Estas por eliminar {{object.nombre}}, ¿Estas seguro?</b></h3>
+<h3 class="m-2" style="color : #ff0000;"> <b>Estas por eliminar {{object.titulo}}, ¿Estas seguro?</b></h3>
 
 <form method="POST">
     {% csrf_token %}

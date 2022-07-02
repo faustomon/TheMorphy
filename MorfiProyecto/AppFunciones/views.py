@@ -95,7 +95,7 @@ class criticas_eliminar(DeleteView):
     model = Criticas
     template_name = 'criticas_eliminar.html'
     def get_success_url(self):
-        return reverse('restaurante')
+        return reverse('critica')
 
 class criticas_editar(UpdateView):
     model = Criticas

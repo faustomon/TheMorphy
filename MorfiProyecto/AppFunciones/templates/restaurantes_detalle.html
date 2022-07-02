@@ -17,7 +17,8 @@
         <a href="{{object.link}}" role="button">{{object.link}}</a>
         </div>
         <br></br>
-        <a class="btn btn-outline-danger m-2" href="/restaurantes_eliminar/{{object.id}}/" role="button">Eliminar resto</a>
+        <a class="btn btn-outline-dark m-2" href="/restaurantes_editar/{{object.id}}/" role="button">Editar</a>
+        <a class="btn btn-outline-danger m-2" href="/restaurantes_eliminar/{{object.id}}/" role="button">Eliminar</a>
     </div>
 
 {% for critica in object_list %} 
