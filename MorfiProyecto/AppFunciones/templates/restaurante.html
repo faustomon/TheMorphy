@@ -16,7 +16,7 @@
             </form>
 
         {% for resto in object_list %} 
-            <div class="card m-2 mx-auto" style="width: 70rem;">
+            <div class="card m-2 mx-auto" style="width: 45rem;">
                 <img src="{{resto.imagen}}" class="card-img-top" alt="Sin imagen">
                 <a class="btn btn-dark m-2" href="/restaurantes_detalle/{{resto.id}}/" role="button"><b>{{resto.nombre}}</b></a>
                 <div class="card-body">

@@ -61,6 +61,19 @@ class restaurantes_detalle(DetailView):
     model = Restaurantes
     template_name = 'restaurantes_detalle.html'
 
+class restaurantes_eliminar(DeleteView):
+    model = Restaurantes
+    template_name = 'restaurantes_eliminar.html'
+    def get_success_url(self):
+        return reverse('restaurante')
+
+class restaurantes_editar(UpdateView):
+    model = Restaurantes
+    template_name = 'restaurantes_editar.html'
+    form_class = Resto_form
+    def get_success_url(self):
+        return reverse('restaurantes_detalle', kwargs={'pk':self.object.pk})
+
 
 #---------------Criticas-----------------
 class critica(ListView):
@@ -77,3 +90,16 @@ class criticas_crear(CreateView):
 class criticas_detalle(DetailView):
     model = Criticas
     template_name = 'criticas_detalle.html'
+
+class criticas_eliminar(DeleteView):
+    model = Criticas
+    template_name = 'criticas_eliminar.html'
+    def get_success_url(self):
+        return reverse('restaurante')
+
+class criticas_editar(UpdateView):
+    model = Criticas
+    template_name = 'criticas_editar.html'
+    form_class = Criticas_form
+    def get_success_url(self):
+        return reverse('criticas_detalle', kwargs={'pk':self.object.pk})
