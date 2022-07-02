@@ -38,6 +38,6 @@ class Criticas_form(forms.ModelForm):
         model = Criticas
         fields = '__all__'
         widgets = {
-            'nombre': forms.TextInput(attrs={'class':'form-control'}),
+            'titulo': forms.TextInput(attrs={'class':'form-control'}),
             'descripcion': forms.Textarea(attrs={'class':'form-control'}),
             }

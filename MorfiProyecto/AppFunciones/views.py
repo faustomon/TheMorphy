@@ -10,7 +10,7 @@ from django.views.generic.detail import *
 from django.views.generic.edit import *
 
 # Create your views here.
-
+#---------------Recetas-----------------
 class RecetasList(ListView):
     model = Recetas
     template_name = "AppFunciones/templates/receta_list.html"
@@ -45,7 +45,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 def inicio(request):
     return render(request, "inicio.html")
 
-# Seccion Restaurantes
+#---------------Restaurantes-----------------
 class restaurante(ListView):
     model = Restaurantes
     template_name = 'restaurante.html'
@@ -62,7 +62,7 @@ class restaurantes_detalle(DetailView):
     template_name = 'restaurantes_detalle.html'
 
 
-
+#---------------Criticas-----------------
 class critica(ListView):
     model = Criticas
     template_name = 'critica.html'
@@ -70,10 +70,10 @@ class critica(ListView):
 class criticas_crear(CreateView):
     model = Criticas
     template_name = 'criticas_crear.html'
-    form_class = Resto_form
+    form_class = Criticas_form
     def get_success_url(self):
         return reverse('criticas_detalle', kwargs={'pk':self.object.pk})
 
 class criticas_detalle(DetailView):
-    model = Restaurantes
+    model = Criticas
     template_name = 'criticas_detalle.html'
