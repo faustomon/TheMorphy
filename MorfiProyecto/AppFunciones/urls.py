@@ -15,4 +15,8 @@ urlpatterns = [
     path("restaurantes_crear/", restaurantes_crear.as_view(), name="restaurantes_crear"),
     path("restaurantes_detalle/<int:pk>/", restaurantes_detalle.as_view(), name="restaurantes_detalle"),
 
+    path("critica/", critica.as_view(), name="critica"),
+    path("criticas_crear/", criticas_crear.as_view(), name="criticas_crear"),
+    path("criticas_detalle/", criticas_detalle.as_view(), name="criticas_detalle"),
+
 ]

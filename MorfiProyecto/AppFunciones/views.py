@@ -60,3 +60,20 @@ class restaurantes_crear(CreateView):
 class restaurantes_detalle(DetailView):
     model = Restaurantes
     template_name = 'restaurantes_detalle.html'
+
+
+
+class critica(ListView):
+    model = Criticas
+    template_name = 'critica.html'
+
+class criticas_crear(CreateView):
+    model = Criticas
+    template_name = 'criticas_crear.html'
+    form_class = Resto_form
+    def get_success_url(self):
+        return reverse('criticas_detalle', kwargs={'pk':self.object.pk})
+
+class criticas_detalle(DetailView):
+    model = Restaurantes
+    template_name = 'criticas_detalle.html'

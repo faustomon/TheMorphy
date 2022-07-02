@@ -13,7 +13,7 @@ class Recetas(models.Model):
 
     def __str__(self):
         return self.nombre_de_receta
-# Create your models here.
+
 class Restaurantes(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=600, blank=True, null=True)
@@ -24,5 +24,11 @@ class Restaurantes(models.Model):
     horarios = models.CharField(max_length=100)
     link = models.URLField(max_length=200)
     imagen = models.URLField(max_length=300, blank=True, null=True, default="https://previews.123rf.com/images/blotty/blotty1707/blotty170700012/82776756-vector-vintage-burger-drawing-mano-dibuja-la-ilustraci%C3%B3n-de-comida-r%C3%A1pida-monocromo-.jpg")
+    def __str__(self):
+        return self.nombre
+
+class Criticas(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=1000)
     def __str__(self):
         return self.nombre

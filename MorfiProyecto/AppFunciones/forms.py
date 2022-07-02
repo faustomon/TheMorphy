@@ -32,3 +32,12 @@ class Resto_form(forms.ModelForm):
             'link': forms.URLInput(attrs={'class':'form-control', 'placeholder':"http://www.ejemplo.com"}),
             'imagen': forms.URLInput(attrs={'class':'form-control', 'placeholder':"Dirección web de imagen"}),
         }
+
+class Criticas_form(forms.ModelForm):
+    class Meta:
+        model = Criticas
+        fields = '__all__'
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class':'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class':'form-control'}),
+            }

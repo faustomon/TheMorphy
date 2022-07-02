@@ -16,10 +16,10 @@
             </form>
 
         {% for resto in object_list %} 
-            <div class="card m-2 mx-auto" style="width: 30rem;">
+            <div class="card m-2 mx-auto" style="width: 70rem;">
                 <img src="{{resto.imagen}}" class="card-img-top" alt="Sin imagen">
+                <a class="btn btn-dark m-2" href="/restaurantes_detalle/{{resto.id}}/" role="button"><b>{{resto.nombre}}</b></a>
                 <div class="card-body">
-                    <h5 class="card-title text-center"><b>{{resto.nombre}}</b></h5>
                     <p class="card-text"><h5><b>Descripcion:</b></h5> {{resto.descripcion}}</p>
                     <p class="card-text"><b>Dirección:</b> <a class="card-text" href="{{resto.link_direccion}}">{{resto.direccion}}</a></p>
                     <p class="card-text"><b>Localidad:</b> {{resto.localidad}}</p>
@@ -28,11 +28,8 @@
                 <a href="{{resto.link}}" role="button">{{resto.link}}</a>
                 </div>
                 <br></br>
-                <a class="btn btn-outline-dark m-2" href="/restaurantes_detalle/{{resto.id}}/" role="button">Ver detalles</a>
-                <a class="btn btn-outline-danger m-2" href="" role="button">Eliminar resto</a>
             </div>  
         {% endfor %}
-        
     </div>
 </div>
 <br>
