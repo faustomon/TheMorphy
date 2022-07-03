@@ -10,7 +10,7 @@ from django.views.generic.detail import *
 from django.views.generic.edit import *
 
 # Create your views here.
-
+#---------------Recetas-----------------
 class RecetasList(ListView):
     model = Recetas
     template_name = "AppFunciones/templates/receta_list.html"
@@ -45,7 +45,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 def inicio(request):
     return render(request, "inicio.html")
 
-# Seccion Restaurantes
+#---------------Restaurantes-----------------
 class restaurante(ListView):
     model = Restaurantes
     template_name = 'restaurante.html'
@@ -60,3 +60,62 @@ class restaurantes_crear(CreateView):
 class restaurantes_detalle(DetailView):
     model = Restaurantes
     template_name = 'restaurantes_detalle.html'
+
+class restaurantes_eliminar(DeleteView):
+    model = Restaurantes
+    template_name = 'restaurantes_eliminar.html'
+    def get_success_url(self):
+        return reverse('restaurante')
+
+class restaurantes_editar(UpdateView):
+    model = Restaurantes
+    template_name = 'restaurantes_editar.html'
+    form_class = Resto_form
+    def get_success_url(self):
+        return reverse('restaurantes_detalle', kwargs={'pk':self.object.pk})
+
+def restaurantes_buscar(request):
+    restaurante = Restaurantes.objects.filter(nombre__icontains = request.GET['search'])
+    if restaurante.exists():
+        context = {'restaurante':restaurante}
+    else:
+        context = {'errors':'No se encontraron resultados, prueba de nuevo...'}
+    return render(request,'restaurantes_buscar.html', context=context)
+
+
+#---------------Criticas-----------------
+class critica(ListView):
+    model = Criticas
+    template_name = 'critica.html'
+
+class criticas_crear(CreateView):
+    model = Criticas
+    template_name = 'criticas_crear.html'
+    form_class = Criticas_form
+    def get_success_url(self):
+        return reverse('criticas_detalle', kwargs={'pk':self.object.pk})
+
+class criticas_detalle(DetailView):
+    model = Criticas
+    template_name = 'criticas_detalle.html'
+
+class criticas_eliminar(DeleteView):
+    model = Criticas
+    template_name = 'criticas_eliminar.html'
+    def get_success_url(self):
+        return reverse('critica')
+
+class criticas_editar(UpdateView):
+    model = Criticas
+    template_name = 'criticas_editar.html'
+    form_class = Criticas_form
+    def get_success_url(self):
+        return reverse('criticas_detalle', kwargs={'pk':self.object.pk})
+
+def criticas_buscar(request):
+    critica = Criticas.objects.filter(titulo__icontains = request.GET['search'])
+    if critica.exists():
+        context = {'critica':critica}
+    else:
+        context = {'errors':'No se encontraron resultados, prueba de nuevo...'}
+    return render(request,'criticas_buscar.html', context=context)
