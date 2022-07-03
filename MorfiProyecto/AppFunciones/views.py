@@ -74,6 +74,14 @@ class restaurantes_editar(UpdateView):
     def get_success_url(self):
         return reverse('restaurantes_detalle', kwargs={'pk':self.object.pk})
 
+def restaurantes_buscar(request):
+    restaurante = Restaurantes.objects.filter(nombre__icontains = request.GET['search'])
+    if restaurante.exists():
+        context = {'restaurante':restaurante}
+    else:
+        context = {'errors':'No se encontraron resultados, prueba de nuevo...'}
+    return render(request,'restaurantes_buscar.html', context=context)
+
 
 #---------------Criticas-----------------
 class critica(ListView):
@@ -103,3 +111,11 @@ class criticas_editar(UpdateView):
     form_class = Criticas_form
     def get_success_url(self):
         return reverse('criticas_detalle', kwargs={'pk':self.object.pk})
+
+def criticas_buscar(request):
+    critica = Criticas.objects.filter(titulo__icontains = request.GET['search'])
+    if critica.exists():
+        context = {'critica':critica}
+    else:
+        context = {'errors':'No se encontraron resultados, prueba de nuevo...'}
+    return render(request,'criticas_buscar.html', context=context)

@@ -9,14 +9,14 @@
     <div class="row">
 
         <h1 class="text-center"><b>Restaurantes disponibles</b></h1>  
-            <form class="form-inline m-3" action="{% url 'Inicio' %}" method="GET">
+            <form class="form-inline m-3" action="{% url 'restaurantes_buscar' %}" method="GET">
                 <input class="form-control" type="text" placeholder="Buscar Restaurante por nombre" aria-label="Search" name = "search">
                 <button class="btn btn-outline-success m-2" type="submit">Buscar</button>
                 <a class="btn btn-outline-primary m-3" href="{% url 'restaurantes_crear' %}" role="button">Agregar Restaurante</a>
             </form>
 
         {% for resto in object_list %} 
-            <div class="card m-2 mx-auto" style="width: 45rem;">
+            <div class="card m-2 mx-auto" style="width: 30rem;">
                 <img src="{{resto.imagen}}" class="card-img-top" alt="Sin imagen">
                 <a class="btn btn-dark m-2" href="/restaurantes_detalle/{{resto.id}}/" role="button"><b>{{resto.nombre}}</b></a>
                 <div class="card-body">
