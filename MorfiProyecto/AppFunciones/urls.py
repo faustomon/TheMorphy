@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from AppFunciones import views
 from AppFunciones.views import *
 
@@ -24,6 +24,4 @@ urlpatterns = [
     path('criticas_eliminar/<int:pk>/', criticas_eliminar.as_view(), name='criticas_eliminar'),
     path('criticas_editar/<int:pk>/', criticas_editar.as_view(), name='criticas_editar'),
     path('criticas_buscar/', criticas_buscar, name='criticas_buscar'),
-
-
 ]
