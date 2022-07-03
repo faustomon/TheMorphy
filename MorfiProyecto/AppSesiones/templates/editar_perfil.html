@@ -1,0 +1,22 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block titulo %}Editar perfil{% endblock %}
+
+{% block contenidoQueCambia %}
+<h3>HOLAAAAA</h3>
+<center>
+    <h5 class="m-5"><b>Editar Perfil de {{usuario}}</b></h5>
+    <h3 class="m-5" style="color : #ff0000;">{{error}}</h3>
+    <div class="row m-5">
+        <form action="" method="POST">
+            <table>
+                {% csrf_token %}
+                {{form.as_p}}
+            </table>
+            <br>
+            <input type="submit" value="Editar Perfil">
+        </form>
+    </div>
+</center> 
+{% endblock %}
