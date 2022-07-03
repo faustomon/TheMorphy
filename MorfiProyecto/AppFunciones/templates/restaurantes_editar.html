@@ -1,10 +1,10 @@
 {% extends "padre.html" %}
 {% load static %}
 
-{% block titulo %}Nuevo Resto{% endblock %}
+{% block titulo %}Editar {{object.nombre}}{% endblock %}
 
 {% block contenidoQueCambia %}
-    <center><h5 class="m-5"><b>Ingrese la informacion de un nuevo restaurante:</b></h5></center>
+    <center><h5 class="m-5"><b>Edite {{object.nombre}}:</b></h5></center>
         <form action="" method="POST">
             <table>
                 <div class="container" style="width: 30rem;">
@@ -12,7 +12,7 @@
                     {{form.as_p}}
                 </div>
             </table>
-            <center><input class="btn btn-success m-3" type="submit" value="Agregar Restaurante"></center>
+            <center><input class="btn btn-success m-3" type="submit" value="Editar Restaurante"></center>
             <br>
         </form>
 {% endblock %}

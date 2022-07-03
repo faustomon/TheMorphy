@@ -5,7 +5,7 @@
 
 {% block contenidoQueCambia %}
 <body>
-    <div class="card m-2 mx-auto" style="width: 30rem;">
+    <div class="card m-2 mx-auto" style="width: 50rem;">
         <img src="{{object.imagen}}" class="card-img-top" alt="Sin imagen">
         <div class="card-body">
             <h5 class="card-title text-center"><b>{{object.nombre}}</b></h5>
@@ -17,9 +17,20 @@
         <a href="{{object.link}}" role="button">{{object.link}}</a>
         </div>
         <br></br>
-        <a class="btn btn-outline-dark m-2" href="/restaurantes_detalle/{{object.id}}/" role="button">Ver detalles</a>
-        <a class="btn btn-outline-danger m-2" href="" role="button">Eliminar resto</a>
+        <a class="btn btn-outline-dark m-2" href="/restaurantes_editar/{{object.id}}/" role="button">Editar</a>
+        <a class="btn btn-outline-danger m-2" href="/restaurantes_eliminar/{{object.id}}/" role="button">Eliminar</a>
+    </div>
+
+{% for critica in object_list %} 
+    <div class="card m-2 mx-auto" style="width: 30rem;">
+        <a class="btn btn-dark m-4" href="/criticas_detalle/{{critica.id}}/" role="button"><b>{{critica.titulo}}</b></a>
+        <div class="card-body">
+            <p class="card-text"><h5><b>Descripcion:</b></h5> {{critica.descripcion}}</p>
+        </div>
+        <br></br>
     </div>  
+{% endfor %}
+
     <br>
     <br>
 </body>
