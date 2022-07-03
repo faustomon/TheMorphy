@@ -33,9 +33,9 @@ class Resto_form(forms.ModelForm):
             'imagen': forms.URLInput(attrs={'class':'form-control', 'placeholder':"Dirección web de imagen"}),
         }
 
-class Criticas_form(forms.ModelForm):
+class Comentario_form(forms.ModelForm):
     class Meta:
-        model = Criticas
+        model = Comentario
         fields = '__all__'
         widgets = {
             'titulo': forms.TextInput(attrs={'class':'form-control'}),
