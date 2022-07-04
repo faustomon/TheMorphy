@@ -6,3 +6,4 @@ urlpatterns = [
     path("", include("AppFunciones.urls")),
     path("", include("AppSesiones.urls")),
 ]
+handler404 = "MorfiProyecto.views.error_404"
