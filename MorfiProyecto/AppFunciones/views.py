@@ -38,7 +38,6 @@ class RecetaDelete(DeleteView):
     template_name = 'recetas_confirm_delete.html'
     def get_success_url(self):
         return reverse('ListaRecetas')
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
 # Create your views here.
 # Inicio
@@ -83,39 +82,39 @@ def restaurantes_buscar(request):
     return render(request,'restaurantes_buscar.html', context=context)
 
 
-#---------------Criticas-----------------
-class critica(ListView):
-    model = Criticas
-    template_name = 'critica.html'
+#---------------Comentarios-----------------
+class comentario(ListView):
+    model = Comentario
+    template_name = 'comentario.html'
 
-class criticas_crear(CreateView):
-    model = Criticas
-    template_name = 'criticas_crear.html'
-    form_class = Criticas_form
+class comentarios_crear(CreateView):
+    model = Comentario
+    template_name = 'comentarios_crear.html'
+    form_class = Comentario_form
     def get_success_url(self):
-        return reverse('criticas_detalle', kwargs={'pk':self.object.pk})
+        return reverse('comentarios_detalle', kwargs={'pk':self.object.pk})
 
-class criticas_detalle(DetailView):
-    model = Criticas
-    template_name = 'criticas_detalle.html'
+class comentarios_detalle(DetailView):
+    model = Comentario
+    template_name = 'comentarios_detalle.html'
 
-class criticas_eliminar(DeleteView):
-    model = Criticas
-    template_name = 'criticas_eliminar.html'
+class comentarios_eliminar(DeleteView):
+    model = Comentario
+    template_name = 'comentarios_eliminar.html'
     def get_success_url(self):
-        return reverse('critica')
+        return reverse('comentario')
 
-class criticas_editar(UpdateView):
-    model = Criticas
-    template_name = 'criticas_editar.html'
-    form_class = Criticas_form
+class comentarios_editar(UpdateView):
+    model = Comentario
+    template_name = 'comentarios_editar.html'
+    form_class = Comentario_form
     def get_success_url(self):
-        return reverse('criticas_detalle', kwargs={'pk':self.object.pk})
+        return reverse('comentarios_detalle', kwargs={'pk':self.object.pk})
 
-def criticas_buscar(request):
-    critica = Criticas.objects.filter(titulo__icontains = request.GET['search'])
-    if critica.exists():
-        context = {'critica':critica}
+def comentarios_buscar(request):
+    comentario = Comentario.objects.filter(titulo__icontains = request.GET['search'])
+    if comentario.exists():
+        context = {'comentario':comentario}
     else:
         context = {'errors':'No se encontraron resultados, prueba de nuevo...'}
-    return render(request,'criticas_buscar.html', context=context)
+    return render(request,'comentarios_buscar.html', context=context)
