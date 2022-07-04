@@ -29,7 +29,7 @@ class Restaurantes(models.Model):
         return self.nombre
 
 class Comentario(models.Model):
-    resto = models.ForeignKey(Restaurantes, null=True, default=1, related_name="comentarios", on_delete=models.CASCADE)
+    resto = models.ForeignKey(Restaurantes, related_name="comentarios", on_delete=models.CASCADE)
     nombre_usuario = models.CharField(max_length=50, blank=True, null=True)
     titulo = models.CharField(max_length=100, blank=True, null=True)
     descripcion = models.TextField(max_length=1000, blank=True, null=True)

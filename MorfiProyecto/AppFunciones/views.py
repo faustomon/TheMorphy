@@ -91,6 +91,9 @@ class comentarios_crear(CreateView):
     model = Comentario
     template_name = 'comentarios_crear.html'
     form_class = Comentario_form
+    def form_valid(self, form):
+        form.instance.resto_id = self.kwargs['pk']
+        return super().form_valid(form)
     def get_success_url(self):
         return reverse('comentarios_detalle', kwargs={'pk':self.object.pk})
 
