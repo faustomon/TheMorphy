@@ -24,7 +24,7 @@ class Restaurantes(models.Model):
     localidad = models.CharField(max_length=40)
     horarios = models.CharField(max_length=100)
     link = models.URLField(max_length=200)
-    imagen = models.URLField(max_length=300, blank=True, null=True, default="https://previews.123rf.com/images/blotty/blotty1707/blotty170700012/82776756-vector-vintage-burger-drawing-mano-dibuja-la-ilustraci%C3%B3n-de-comida-r%C3%A1pida-monocromo-.jpg")
+    imagen = models.ImageField(blank=True, null=True)
     def __str__(self):
         return self.nombre
 
