@@ -57,6 +57,7 @@ def editar_perfil(request):
             usuario.nombre = informacion['nombre']
             usuario.apellido = informacion['apellido']
             usuario.edad = informacion['edad']
+            usuario.imagen = informacion['imagen']
             #imagen
             form.save()
             return render(request, 'inicio.html', {'mensaje': 'Datos cambiados exitosamente'})

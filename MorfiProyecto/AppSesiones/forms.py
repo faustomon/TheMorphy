@@ -21,7 +21,7 @@ class UserEditForm(UserCreationForm):
     nombre = forms.CharField(label='Modificar nombre', required=False)
     apellido = forms.CharField(label='Modificar apellido', required=False)
     edad = forms.IntegerField(label='Modificar edad', required=False)
-    #imagen
+    imagen = forms.ImageField(required=False)
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2', 'nombre', 'apellido', 'edad']
