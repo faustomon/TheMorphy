@@ -1,6 +1,7 @@
 *.pyc
 
-MorfiProyecto\AppFunciones\__pycache__\*
-MorfiProyecto\AppFunciones\migrations\__pycache__\*
-MorfiProyecto\AppSesiones\__pycache__\*
-MorfiProyecto\AppSesiones\migrations\__pycache__\*
+AppFunciones/__pycache__/*
+AppFunciones/migrations/__pycache__/*
+AppSesiones/__pycache__/*
+AppSesiones/migrations/__pycache__/*
+MorfiProyecto/__pycache__/*
