@@ -1,6 +1,8 @@
 from django.urls import path, include
 from AppFunciones import views
 from AppFunciones.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("", inicio, name="Inicio"),
@@ -24,4 +26,5 @@ urlpatterns = [
     path('comentarios_eliminar/<int:pk>/', comentarios_eliminar.as_view(), name='comentarios_eliminar'),
     path('comentarios_editar/<int:pk>/', comentarios_editar.as_view(), name='comentarios_editar'),
     path('comentarios_buscar/', comentarios_buscar, name='comentarios_buscar'),
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+

@@ -7,7 +7,7 @@ class Recetas(models.Model):
     ingredientes = models.TextField(max_length=300)
     instrucciones = models.TextField(max_length=300)
     autor = models.CharField(max_length=60)
-    imagen_de_comida = models.URLField(max_length=300, blank=True, null=True)
+    imagen_de_comida = models.ImageField(blank=True, null=True, upload_to='AppFunciones/Imagenes/recetas_lista/')
 
     def get_absolute_url(self):
         return reverse('nombre_de_receta-detail', kwargs={'pk': self.pk})
@@ -35,4 +35,4 @@ class Comentario(models.Model):
     descripcion = models.TextField(max_length=1000, blank=True, null=True)
     fecha = models.DateField(auto_now_add=True)
     def __str__(self):
-        return '%s - %s' % (self.resto.titulo, self.nombre)
+        return '%s - %s' % (self.titulo, self.nombre_usuario)

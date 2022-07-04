@@ -10,13 +10,8 @@ class RecetasFormulario(forms.ModelForm):
             'ingredientes': forms.Textarea(attrs={'class':'form-control'}),
             'instrucciones': forms.Textarea(attrs={'class':'form-control'}),
             'autor': forms.TextInput(attrs={'class':'form-control'}),
-            'imagen_de_comida': forms.URLInput(attrs={'class':'form-control', 'placeholder':"Dirección web de imagen"}),
+            'imagen_de_comida': forms.FileInput(attrs={'class':'form-control', 'placeholder':"Dirección web de imagen"}),
         }
-        # nombre_de_receta = models.CharField(max_length=60)
-        # ingredientes = models.CharField(max_length=300)
-        # instrucciones = models.CharField(max_length=300)
-        # autor = models.CharField(max_length=60)
-        # imagen_de_comida = models.URLField(max_length=300, blank=True, null=True)
 class Resto_form(forms.ModelForm):
     class Meta:
         model = Restaurantes

@@ -17,9 +17,10 @@
         {% for recetas in object_list %}
             <div class="col-3">  
                 <div class="card m-2" style="width: 18rem;">
-                    <img src="{{recetas.imagen_de_comida}}" class="card-img-top" alt="...">
+                    <img src="{{recetas.imagen_de_comida}}" class="w3-round" alt="...">
                     <div class="card-body">
                         <h5 class="card-title text-center">{{recetas.nombre_de_receta}}</h5>
+                        <p class = "w3-round"> {{recetas.imagen_de_comida}}}</p>
                         <p class="card-text">{{recetas.autor}}</p>
                         <p class="card-text">{{recetas.ingredientes}}</p>
                         <p class="card-text">{{recetas.instrucciones}}</p>
