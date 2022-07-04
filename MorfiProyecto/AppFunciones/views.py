@@ -38,7 +38,6 @@ class RecetaDelete(DeleteView):
     template_name = 'recetas_confirm_delete.html'
     def get_success_url(self):
         return reverse('ListaRecetas')
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 
 # Create your views here.
 # Inicio

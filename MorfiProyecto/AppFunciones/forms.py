@@ -7,8 +7,8 @@ class RecetasFormulario(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'nombre_de_receta': forms.TextInput(attrs={'class':'form-control'}),
-            'ingredientes': forms.TextInput(attrs={'class':'form-control'}),
-            'instrucciones': forms.TextInput(attrs={'class':'form-control'}),
+            'ingredientes': forms.Textarea(attrs={'class':'form-control'}),
+            'instrucciones': forms.Textarea(attrs={'class':'form-control'}),
             'autor': forms.TextInput(attrs={'class':'form-control'}),
             'imagen_de_comida': forms.URLInput(attrs={'class':'form-control', 'placeholder':"Dirección web de imagen"}),
         }

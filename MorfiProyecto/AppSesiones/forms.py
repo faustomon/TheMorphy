@@ -14,6 +14,7 @@ class UserRegisterForm(UserCreationForm):
         help_texts = {k:"" for k in fields}
 
 class UserEditForm(UserCreationForm):
+    username = forms.CharField(label='Modificar nombre de usuario', required=False)
     email = forms.EmailField(required=False)
     password1 = forms.CharField(label='Nueva contraseña', widget=forms.PasswordInput, required=False)
     password2 = forms.CharField(label='Repita su nueva contraseña', widget=forms.PasswordInput, required=False)
@@ -23,5 +24,5 @@ class UserEditForm(UserCreationForm):
     #imagen
     class Meta:
         model = User
-        fields = ['email', 'password1', 'password2', 'nombre', 'apellido', 'edad']
+        fields = ['username', 'email', 'password1', 'password2', 'nombre', 'apellido', 'edad']
         help_texts = {k:'' for k in fields}
