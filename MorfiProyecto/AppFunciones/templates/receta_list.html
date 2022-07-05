@@ -1,5 +1,8 @@
 {% extends "padre.html" %}
 {% load static %}
+
+{% block titulo %}Recetas{% endblock %}
+
 {% block contenidoQueCambia %}
 
 <div class="container">
@@ -16,17 +19,21 @@
 
         <br>
         <br>
-        {% for recetas in object_list %}  
-        <div class="card m-2 mx-auto" style="width: 30rem;">
-            <img src="{{recetas.imagen_de_comida}}" class="card-img-top" alt="Sin imagen">
-            <a class="btn btn-dark m-2" href="/recetas/{{recetas.id}}/" role="button"><b>{{recetas.nombre_de_receta}}</b></a>
-            <div class="card-body">
-                <p class="card-text"><b>Ingredientes:</b> {{recetas.ingredientes}}</p>
-                <p class="card-text"><b>Autor:</b> {{recetas.autor}}</p>
-            </div>
-            <br></br>
-        </div>  
-    {% endfor %}
+        {% for recetas in object_list %}
+            <div class="col-3">  
+                <div class="card m-2" style="width: 18rem;">
+                    <img src="{{recetas.imagen_de_comida}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{recetas.nombre_de_receta}}</h5>
+                        <p class="card-text">{{recetas.autor}}</p>
+                        <p class="card-text">{{recetas.ingredientes}}</p>
+                        <p class="card-text">{{recetas.instrucciones}}</p>
+                        <a class="btn btn-outline-dark m-2" href="/recetas/{{recetas.id}}/" role="button">Ver detalles</a>
+                        <a class="btn btn-outline-danger m-2" href="/recetas/eliminar/{{recetas.id}}/" role="button">Eliminar receta</a>
+                    </div>
+                </div>
+            </div> 
+        {%endfor%}
     </div>
 </div>
 <br>

@@ -6,6 +6,7 @@ from AppFunciones.views import *
 
 urlpatterns = [
     path("", inicio, name="Inicio"),
+    path("acerca_de", acerca_de, name="AcercaDe"),
     #---------------Recetas-----------------
     path("recetas_lista/", RecetasList.as_view(), name="ListaRecetas"),
     path("recetas/<pk>/", RecetaDetail.as_view(), name="DetalleRecetas"),
