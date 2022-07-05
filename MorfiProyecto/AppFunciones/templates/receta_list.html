@@ -1,5 +1,8 @@
 {% extends "padre.html" %}
 {% load static %}
+
+{% block titulo %}Recetas{% endblock %}
+
 {% block contenidoQueCambia %}
 
 <div class="container">
@@ -24,7 +27,7 @@
                         <p class="card-text">{{recetas.ingredientes}}</p>
                         <p class="card-text">{{recetas.instrucciones}}</p>
                         <a class="btn btn-outline-dark m-2" href="/recetas/{{recetas.id}}/" role="button">Ver detalles</a>
-                        <a class="btn btn-outline-danger m-2" href="/recetas/eliminar/{{recetas.id}}/" role="button">Eliminar resto</a>
+                        <a class="btn btn-outline-danger m-2" href="/recetas/eliminar/{{recetas.id}}/" role="button">Eliminar receta</a>
                     </div>
                 </div>
             </div> 

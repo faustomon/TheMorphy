@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'restaurante' %}">Restaurantes</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'comentario' %}">Críticas</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'comentario' %}">Comentarios</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'ListaRecetas' %}">Recetas</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'logout' %}">Logout</a></li>
@@ -66,7 +66,7 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <ul class="list-inline text-center">
                             <li class="list-inline-item">
-                                <a href="https://vinomanos.com/wp-content/uploads/2020/05/receta-de-pastel-de-papas.jpg">About Us
+                                <a href="{% url 'AcercaDe' %}">About Us
                                 </a>
                             </li>
                             <li class="list-inline-item">
@@ -78,7 +78,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2022</div>
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; The Morphy</div>
                     </div>
                 </div>
             </div>

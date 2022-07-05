@@ -1,9 +1,9 @@
 {% extends "padre.html" %}
 {% load static %}
+
+{% block titulo %}{{recetas.nombre_de_receta}}{% endblock %}
+
 {% block contenidoQueCambia %}
-
-
-
 <h1>Detalle de receta</h1>
 <p>Nombre: {{recetas.nombre_de_receta}}</p>
 <p>Autor: {{recetas.autor}}</p>

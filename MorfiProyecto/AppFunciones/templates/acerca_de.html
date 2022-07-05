@@ -1,0 +1,45 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block titulo %}Acerca De{% endblock %}
+
+{% block contenidoQueCambia %}
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="card m-2" style="width: 18rem;">
+            <img src="{% static 'assets/favicon.ico' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Fausto Mongini</h5>
+                <p>Datos 1.</p>
+                <p>Datos 2.</p>
+                <p>Datos 3.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="card m-2" style="width: 18rem;">
+            <img src="{% static 'assets/favicon.ico' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Federico Montagna</h5>
+                <p>Datos 1.</p>
+                <p>Datos 2.</p>
+                <p>Datos 3.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="card m-2" style="width: 18rem;">
+            <img src="{% static 'assets/img/FedeSilva.jpeg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Federico Silva</h5>
+                <p>Uruguayo, 20 años, Estudiante y trabajador.</p>
+                <p>Apasionado del deporte, la música y el cine.</p>
+                <p>Conocimientos en programación Java, JS, CSS y HTML desde 2020 y Python desde 2022.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

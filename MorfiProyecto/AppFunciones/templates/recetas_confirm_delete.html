@@ -1,5 +1,8 @@
 {% extends "padre.html" %}
 {% load static %}
+
+{% block titulo %}Eliminar {{object.nombre_de_receta}}{% endblock %}
+
 {% block contenidoQueCambia %}
 <h1>Recetas</h1>
 <h3 class="m-2" style="color : #ff0000;"> Estas por eliminar {{object.nombre_de_receta}}, estas seguro?</h3>
