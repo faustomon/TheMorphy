@@ -3,16 +3,23 @@
 {% block contenidoQueCambia %}
 
 
+<body>
+    <div class="card m-2 mx-auto" style="width: 50rem;">
+        <img src="{{object.imagen_de_comida}}" class="card-img-top" alt="Sin imagen">
+        <div class="card-body">
+            <h5 class="card-title text-center"><b></b></h5>
+            <p class="card-text"><h5><b>Nombre:</b></h5> {{object.nombre_de_receta}}</p>
+            <p class="card-text"><b>Ingredientes:</b> {{object.ingredientes}}</a></p>
+            <p class="card-text"><b>Instrucciones:</b> {{object.instrucciones}}</p>
+            <p class="card-text"><b>Autor:</b> {{object.autor}}</p>
+        </div>
+        <br></br>
+        <a class="btn btn-outline-dark m-2" href="/recetas/edicion/{{object.id}}/" role="button">Editar</a>
+        <a class="btn btn-outline-danger m-2" href="/recetas/eliminar/{{object.id}}/" role="button">Eliminar</a>
+        <a class="btn btn-success m-3" href="/recetas_lista/" role="button">Volver a Recetas</a>
 
-<h1>Detalle de receta</h1>
-<p>Nombre: {{recetas.nombre_de_receta}}</p>
-<p>Autor: {{recetas.autor}}</p>
-<p>Ingrdientes: {{recetas.ingredientes}}</p>
-<p>instrucciones: {{recetas.instrucciones}}</p>
-<br>
-<br>
-<a class="btn btn-dark m-2" href="/recetas/edicion/{{recetas.id}}/"> Editar </a>
-<p>
-    <a href="/recetas_lista"> Volver a recetas</a>
-</p>
+    </div>
+    <br>
+    <br>
+</body>
 {% endblock %}

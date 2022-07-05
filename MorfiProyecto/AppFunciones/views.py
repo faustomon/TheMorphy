@@ -39,6 +39,14 @@ class RecetaDelete(DeleteView):
     def get_success_url(self):
         return reverse('ListaRecetas')
 
+def buscar_receta(request):
+    recetas = Recetas.objects.filter(nombre_de_receta__icontains = request.GET['search'])
+    if recetas.exists():
+        context = {'recetas':recetas}
+    else:
+        context = {'errors':'No se encontraron resultados, prueba de nuevo...'}
+    return render(request,'receta_busqueda.html', context=context)
+
 # Create your views here.
 # Inicio
 def inicio(request):
