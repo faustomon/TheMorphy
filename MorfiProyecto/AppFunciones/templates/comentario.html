@@ -12,7 +12,6 @@
                 <form class="form-inline m-3" action="{% url 'comentarios_buscar' %}" method="GET">
                     <input class="form-control" type="text" placeholder="Buscar Comentario" aria-label="Search" name = "search">
                     <button class="btn btn-outline-success m-2" type="submit">Buscar</button>
-                    <a class="btn btn-outline-primary m-3" href="{% url 'comentarios_crear' %}" role="button">Agregar Crítica</a>
                 </form>
 
             {% for comentario in object_list %} 

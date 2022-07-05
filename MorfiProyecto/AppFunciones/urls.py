@@ -23,7 +23,7 @@ urlpatterns = [
     path('restaurantes_buscar/', restaurantes_buscar, name='restaurantes_buscar'),
     #---------------Comentarios-------------
     path("comentario/", comentario.as_view(), name="comentario"),
-    path("comentarios_crear/", comentarios_crear.as_view(), name="comentarios_crear"),
+    path("restaurantes_detalle/<int:pk>/comentarios_crear/", comentarios_crear.as_view(), name="comentarios_crear"),
     path("comentarios_detalle/<int:pk>/", comentarios_detalle.as_view(), name="comentarios_detalle"),
     path('comentarios_eliminar/<int:pk>/', comentarios_eliminar.as_view(), name='comentarios_eliminar'),
     path('comentarios_editar/<int:pk>/', comentarios_editar.as_view(), name='comentarios_editar'),

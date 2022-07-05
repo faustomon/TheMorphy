@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.urls import reverse
-from django.http import HttpResponse
-from django.template import loader
 from django.urls import reverse_lazy, reverse
 from AppFunciones.forms import *
 from AppFunciones.models import *
@@ -102,8 +100,11 @@ class comentarios_crear(CreateView):
     model = Comentario
     template_name = 'comentarios_crear.html'
     form_class = Comentario_form
+    def form_valid(self, form):
+        form.instance.resto_id = self.kwargs['pk']
+        return super().form_valid(form)
     def get_success_url(self):
-        return reverse('comentarios_detalle', kwargs={'pk':self.object.pk})
+        return reverse('restaurantes_detalle', kwargs={'pk':self.object.pk})
 
 class comentarios_detalle(DetailView):
     model = Comentario
