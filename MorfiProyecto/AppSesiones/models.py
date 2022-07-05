@@ -7,7 +7,7 @@ class Sesion_perfil(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     edad = models.IntegerField()
-    imagen = models.ImageField(blank=True, null=True)
+    imagen = models.ImageField(upload_to='perfiles', blank=True, null=True)
     #restaurantes
     #criticas
     #recetas

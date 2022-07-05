@@ -8,13 +8,29 @@ from django.views import generic
 from django.views.generic import DetailView
 from django.urls import reverse_lazy
 
+#---------------Registro-----------------
+def registro(request):
+    if request.method == 'POST':
+        form = Perfil_registro_form(request.POST)
+        if form.is_valid():
+            form.save()
+            usuario = form.cleaned_data['username']
+            contra = form.cleaned_data['password1']
+            user = authenticate(username=usuario, password=contra)
+            login(request, user)
+            context = {'mensaje': f'Usuario creado correctamente. Bienvenido {usuario} :D !!'}
+            return render(request,"inicio.html", context=context)
+        else:
+            errors = form.errors
+            form = Perfil_registro_form()
+            context = {'error':errors,'form':form}
+            return render(request, 'registro.html', context=context)
+    else:
+        form = Perfil_registro_form()
+        context = {'form':form}
+        return render(request, 'registro.html', context=context)
 
-# Create your views here.
-
-def logout_request(request):
-    logout(request)
-    return redirect('Inicio')
-
+#---------------Login-----------------
 def login_request(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
@@ -39,26 +55,10 @@ def login_request(request):
         context = {'form':form}
         return render(request,"login.html", {'form':form} )
 
-def registro(request):
-    if request.method == 'POST':
-        form = Perfil_registro_form(request.POST)
-        if form.is_valid():
-            form.save()
-            usuario = form.cleaned_data['username']
-            contra = form.cleaned_data['password1']
-            user = authenticate(username=usuario, password=contra)
-            login(request, user)
-            context = {'mensaje': f'Usuario creado correctamente. Bienvenido {usuario} :D !!'}
-            return render(request,"inicio.html", context=context)
-        else:
-            errors = form.errors
-            form = Perfil_registro_form()
-            context = {'error':errors,'form':form}
-            return render(request, 'registro.html', context=context)
-    else:
-        form = Perfil_registro_form()
-        context = {'form':form}
-        return render(request, 'registro.html', context=context)
+#---------------Logout-----------------
+def logout_request(request):
+    logout(request)
+    return redirect('Inicio')
 
 class perfil(DetailView):
     model = Sesion_perfil
@@ -70,10 +70,10 @@ class perfil_eliminar(DeleteView):
     def get_success_url(self):
         return reverse('Inicio')
 
-def editar_perfil(request):
+def perfil_editar(request):
     usuario = request.user
     if request.method == 'POST':
-        form = UserEditForm(request.POST, instance=usuario)
+        form = Perfil_editar(request.POST, instance=usuario)
         if form.is_valid():
             informacion = form.cleaned_data
             usuario.email = informacion['email']
@@ -86,5 +86,5 @@ def editar_perfil(request):
             form.save()
             return render(request, 'inicio.html', {'mensaje': 'Datos cambiados exitosamente'})
     else:
-        form = UserEditForm(instance=usuario)
+        form = Perfil_editar(instance=usuario)
     return render(request, 'editar_perfil.html', {'form':form, 'usuario':usuario.username})

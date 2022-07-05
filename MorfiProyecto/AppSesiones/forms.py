@@ -7,13 +7,12 @@ class Perfil_registro_form(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repetir la contraseña', widget=forms.PasswordInput) 
-
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2'] 
         help_texts = {k:"" for k in fields}
 
-class UserEditForm(UserCreationForm):
+class Perfil_editar(UserCreationForm):
     username = forms.CharField(label='Modificar nombre de usuario', required=False)
     email = forms.EmailField(required=False)
     password1 = forms.CharField(label='Nueva contraseña', widget=forms.PasswordInput, required=False)
