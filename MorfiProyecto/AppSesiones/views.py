@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from AppSesiones.forms import *
 from AppFunciones.urls import *
@@ -17,10 +17,10 @@ def logout_request(request):
 
 def login_request(request):
     if request.method == "POST":
-        form = AuthenticationForm(request, data = request.POST)
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            usuario = form.cleaned_data.get('username')
-            contra = form.cleaned_data.get('password')
+            usuario = form.cleaned_data['username']
+            contra = form.cleaned_data['password']
             user = authenticate(username=usuario, password=contra)
             if user is not None:
                 login(request, user)
@@ -37,23 +37,28 @@ def login_request(request):
     else:
         form = AuthenticationForm()
         context = {'form':form}
-    return render(request,"login.html", {'form':form} )
+        return render(request,"login.html", {'form':form} )
 
-class registro(generic.CreateView):
-    form_class = UserCreationForm
-    template_name = 'registro.html'
-    success_url: reverse_lazy('login')
-
-# def registro(request):
-#     if request.method == 'POST':
-#         form = UserRegisterForm(request.POST)
-#         if form.is_valid():
-#             username = form.cleaned_data['username']
-#             form.save()
-#             return render(request,"inicio.html")
-#     else:
-#         form = UserRegisterForm()
-#     return render(request,"registro.html" ,  {"form":form})
+def registro(request):
+    if request.method == 'POST':
+        form = Perfil_registro_form(request.POST)
+        if form.is_valid():
+            form.save()
+            usuario = form.cleaned_data['username']
+            contra = form.cleaned_data['password1']
+            user = authenticate(username=usuario, password=contra)
+            login(request, user)
+            context = {'mensaje': f'Usuario creado correctamente. Bienvenido {usuario} :D !!'}
+            return render(request,"inicio.html", context=context)
+        else:
+            errors = form.errors
+            form = Perfil_registro_form()
+            context = {'error':errors,'form':form}
+            return render(request, 'registro.html', context=context)
+    else:
+        form = Perfil_registro_form()
+        context = {'form':form}
+        return render(request, 'registro.html', context=context)
 
 class perfil(DetailView):
     model = Sesion_perfil

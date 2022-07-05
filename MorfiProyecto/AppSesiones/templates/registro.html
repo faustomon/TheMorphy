@@ -4,11 +4,18 @@
 {% block titulo %}Registro{% endblock %}
 
 {% block contenidoQueCambia %}
-<body>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Registrate!!!!</button>
-    </form>
-</body>
+<center>
+    <h5 class="m-5"><b>Registrar nuevo Usuario</b></h5>
+    <h3 class="m-5" style="color : #ff0000;">{{error}}</h3>
+    <div class="row m-5">
+        <form action="" method="POST">
+            <table>
+                {% csrf_token %}
+                {{form.as_p}}
+            </table>
+            <br>
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
+</center> 
 {% endblock %}
