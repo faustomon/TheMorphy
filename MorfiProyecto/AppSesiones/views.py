@@ -8,6 +8,7 @@ from django.views import generic
 from django.views.generic import DetailView
 from django.urls import reverse_lazy
 
+
 #---------------Registro-----------------
 def registro(request):
     if request.method == 'POST':
@@ -60,15 +61,15 @@ def logout_request(request):
     logout(request)
     return redirect('Inicio')
 
-class perfil(DetailView):
-    model = Sesion_perfil
-    template_name = 'perfil.html'
+# class perfil(DetailView):
+#     model = Sesion_perfil
+#     template_name = 'perfil.html'
 
-class perfil_eliminar(DeleteView):
-    model = Sesion_perfil
-    template_name = 'perfil_eliminar.html'
-    def get_success_url(self):
-        return reverse('Inicio')
+# class perfil_eliminar(DeleteView):
+#     model = Sesion_perfil
+#     template_name = 'perfil_eliminar.html'
+#     def get_success_url(self):
+#         return reverse('Inicio')
 
 def perfil_editar(request):
     usuario = request.user

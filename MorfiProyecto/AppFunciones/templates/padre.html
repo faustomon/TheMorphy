@@ -34,7 +34,7 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'ListaRecetas' %}">Recetas</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'logout' %}">Logout</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/perfil/{{request.user.id}}/">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/editar_perfil/{{request.user.id}}/">Perfil</a></li>
                         {% else %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'login' %}">Login</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'registro' %}">Register</a></li>
@@ -64,6 +64,14 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <ul class="list-inline text-center">
+                            {% if request.user.is_authenticated %}
+                            <li class="list-inline-item">
+                                <h6><b>Usuario: {{request.user.username}}</b></h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <img src="{{request.user.sesion_perfil.imagen.url}}" style="height: 4rem;">
+                            </li>
+                            {% endif %}
                             <li class="list-inline-item">
                                 <a href="{% url 'AcercaDe' %}">About Us
                                 </a>
