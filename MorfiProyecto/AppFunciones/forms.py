@@ -30,7 +30,7 @@ class Resto_form(forms.ModelForm):
             'localidad': forms.TextInput(attrs={'class':'form-control'}),
             'horarios': forms.TextInput(attrs={'class':'form-control'}),
             'link': forms.URLInput(attrs={'class':'form-control', 'placeholder':"http://www.ejemplo.com"}),
-            'imagen': forms.ImageField(),
+            #'imagen': forms.ImageField(),
         }
 
 class Comentario_form(forms.ModelForm):
