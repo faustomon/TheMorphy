@@ -41,4 +41,14 @@ Contraseña y Repetir Contraseña)
 Perfil nos muestra los datos del usuario y nos presenta otros más que no son vitales para el registro, como por ejemplo: 
 nombre, apellido y edad). Todos los datos son iterables. y para confirmar se debe pulsar el botón editar.
 
+------------------------------------------------------------------------------------------------------------------------
+
+El trabajo fue realizado por 3 integrantes. Cada uno llevo a cabo distintas actividades entre esas:
+
+Federico Silva: Sistema de usuarios, Acerca de mi y los htmls para cada respectiva función.
+
+Federico Montagna: El conjunto de funciones de Restaurante y los respectivos htmls.
+
+Fausto Mongini: El conjunto de funciones de Restaurante, Readme  y los respectivos htmls.
+
 
