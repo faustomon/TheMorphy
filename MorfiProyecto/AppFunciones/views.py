@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.urls import reverse
 from django.urls import reverse_lazy, reverse
 from AppFunciones.forms import *
 from AppFunciones.models import *

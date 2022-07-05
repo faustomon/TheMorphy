@@ -4,7 +4,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("AppFunciones.urls")),
+    path("", include('django.contrib.auth.urls')),
     path("", include("AppSesiones.urls")),
-    
 ]
 handler404 = "MorfiProyecto.views.error_404"

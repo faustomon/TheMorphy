@@ -1,0 +1,24 @@
+{% extends "padre.html" %}
+{% load static %}
+
+{% block titulo %}{{object.username}}{% endblock %}
+
+{% block contenidoQueCambia %}
+<body>
+    <div class="card m-2 mx-auto" style="width: 50rem;">
+        <img src="{{object.imagen}}" class="card-img-top" alt="Sin imagen">
+        <div class="card-body">
+            <h5 class="card-title text-center"><b></b></h5>
+            <p class="card-text"><h5><b>Usuario:</b></h5> {{object.username}}</p>
+            <p class="card-text"><b>Nombre:</b>{{object.nombre}}</p>
+            <p class="card-text"><b>Apellido:</b> {{object.apellido}}</p>
+            <p class="card-text"><b>Edad:</b> {{object.edad}}</p>
+        </div>
+        <br></br>
+        <a class="btn btn-outline-dark m-2" href="/editar_perfil/{{object.id}}/" role="button">Editar</a>
+        <a class="btn btn-outline-danger m-2" href="/perfil_eliminar/{{object.id}}/" role="button">Eliminar</a>
+    </div>
+    <br>
+    <br>
+</body>
+{% endblock %}

@@ -1,8 +1,13 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from AppSesiones.forms import *
 from AppFunciones.urls import *
+from AppSesiones.models import *
+from django.views import generic
+from django.views.generic import DetailView
+from django.urls import reverse_lazy
+
 
 # Create your views here.
 
@@ -34,16 +39,31 @@ def login_request(request):
         context = {'form':form}
     return render(request,"login.html", {'form':form} )
 
-def registro(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            form.save()
-            return render(request,"inicio.html")
-    else:
-        form = UserRegisterForm()
-    return render(request,"registro.html" ,  {"form":form})
+class registro(generic.CreateView):
+    form_class = UserCreationForm
+    template_name = 'registro.html'
+    success_url: reverse_lazy('login')
+
+# def registro(request):
+#     if request.method == 'POST':
+#         form = UserRegisterForm(request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data['username']
+#             form.save()
+#             return render(request,"inicio.html")
+#     else:
+#         form = UserRegisterForm()
+#     return render(request,"registro.html" ,  {"form":form})
+
+class perfil(DetailView):
+    model = Sesion_perfil
+    template_name = 'perfil.html'
+
+class perfil_eliminar(DeleteView):
+    model = Sesion_perfil
+    template_name = 'perfil_eliminar.html'
+    def get_success_url(self):
+        return reverse('Inicio')
 
 def editar_perfil(request):
     usuario = request.user
@@ -58,7 +78,6 @@ def editar_perfil(request):
             usuario.apellido = informacion['apellido']
             usuario.edad = informacion['edad']
             usuario.imagen = informacion['imagen']
-            #imagen
             form.save()
             return render(request, 'inicio.html', {'mensaje': 'Datos cambiados exitosamente'})
     else:

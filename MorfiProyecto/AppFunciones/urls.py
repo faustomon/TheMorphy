@@ -1,5 +1,4 @@
 from django.urls import path, include
-from AppFunciones import views
 from AppFunciones.views import *
 
 
