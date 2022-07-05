@@ -7,9 +7,10 @@
 <body>
     <div class="card m-2 mx-auto" style="width: 30rem;">
         <br>
-        <h5 class="card-title text-center m-2"><b>{{object.titulo}}</b></h5>
+        <h5 class="card-title text-center m-2"><b>{{object.titulo}} - {{object.fecha}}</b></h5>
         <div class="card-body">
             <p class="card-text"><h5><b>Descripcion:</b></h5> {{object.descripcion}}</p>
+            <p class="card-text">Resto asociado: {{object.resto}}</p>
         </div>
         <br>
         <a class="btn btn-outline-dark m-2" href="/comentarios_editar/{{object.id}}/" role="button">Editar</a>
