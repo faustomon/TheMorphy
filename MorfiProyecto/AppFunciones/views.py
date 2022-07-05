@@ -104,7 +104,7 @@ class comentarios_crear(CreateView):
         form.instance.resto_id = self.kwargs['pk']
         return super().form_valid(form)
     def get_success_url(self):
-        return reverse('restaurantes_detalle', kwargs={'pk':self.object.pk})
+        return reverse('comentarios_detalle', kwargs={'pk':self.object.pk})
 
 class comentarios_detalle(DetailView):
     model = Comentario
