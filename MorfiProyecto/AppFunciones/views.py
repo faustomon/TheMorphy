@@ -44,6 +44,9 @@ class RecetaDelete(DeleteView):
 def inicio(request):
     return render(request, "inicio.html")
 
+def acerca_de(request):
+    return render(request, "acerca_de.html")
+
 #---------------Restaurantes-----------------
 class restaurante(ListView):
     model = Restaurantes
