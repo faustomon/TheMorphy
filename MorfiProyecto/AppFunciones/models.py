@@ -35,4 +35,4 @@ class Comentario(models.Model):
     descripcion = models.TextField(max_length=1000, blank=True, null=True)
     fecha = models.DateField(auto_now_add=True)
     def __str__(self):
-        return '%s - %s' % (self.resto.titulo, self.nombre)
+        return self.titulo + " " + self.descripcion

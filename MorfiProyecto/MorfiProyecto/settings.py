@@ -135,7 +135,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/AppSesiones/login'
-
-MEDIA_ROOT = ''
-
-MEDIA_URL = ''

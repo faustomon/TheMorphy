@@ -1,3 +1,5 @@
+from pyexpat import model
+from statistics import mode
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
@@ -7,29 +9,6 @@ from AppSesiones.models import *
 from django.views import generic
 from django.views.generic import DetailView
 from django.urls import reverse_lazy
-
-
-#---------------Registro-----------------
-def registro(request):
-    if request.method == 'POST':
-        form = Perfil_registro_form(request.POST)
-        if form.is_valid():
-            form.save()
-            usuario = form.cleaned_data['username']
-            contra = form.cleaned_data['password1']
-            user = authenticate(username=usuario, password=contra)
-            login(request, user)
-            context = {'mensaje': f'Usuario creado correctamente. Bienvenido {usuario} :D !!'}
-            return render(request,"inicio.html", context=context)
-        else:
-            errors = form.errors
-            form = Perfil_registro_form()
-            context = {'error':errors,'form':form}
-            return render(request, 'registro.html', context=context)
-    else:
-        form = Perfil_registro_form()
-        context = {'form':form}
-        return render(request, 'registro.html', context=context)
 
 #---------------Login-----------------
 def login_request(request):
@@ -61,31 +40,34 @@ def logout_request(request):
     logout(request)
     return redirect('Inicio')
 
-# class perfil(DetailView):
-#     model = Sesion_perfil
-#     template_name = 'perfil.html'
-
-# class perfil_eliminar(DeleteView):
-#     model = Sesion_perfil
-#     template_name = 'perfil_eliminar.html'
-#     def get_success_url(self):
-#         return reverse('Inicio')
-
-def perfil_editar(request):
-    usuario = request.user
-    if request.method == 'POST':
-        form = Perfil_editar(request.POST, instance=usuario)
+#---------------Registro-----------------
+class Perfil_crear(CreateView):
+    model = Sesion_perfil
+    template_name = "registro.html"
+    form_class = Perfil_registro_form
+    def post(self, request):
+        modelo = Sesion_perfil()
+        form = Perfil_registro_form(request.POST)
         if form.is_valid():
-            informacion = form.cleaned_data
-            usuario.email = informacion['email']
-            usuario.password1 = informacion['password1']
-            usuario.password2 = informacion['password2']
-            usuario.nombre = informacion['nombre']
-            usuario.apellido = informacion['apellido']
-            usuario.edad = informacion['edad']
-            usuario.imagen = informacion['imagen']
             form.save()
-            return render(request, 'inicio.html', {'mensaje': 'Datos cambiados exitosamente'})
-    else:
-        form = Perfil_editar(instance=usuario)
-    return render(request, 'editar_perfil.html', {'form':form, 'usuario':usuario.username})
+            usuario = form.cleaned_data['username']
+            contra = form.cleaned_data['password1']
+            user = authenticate(username=usuario, password=contra)
+            login(request, user)
+            user.save()
+            modelo.user = user
+            modelo.nombre = usuario
+            modelo.save()
+            context = {'mensaje': f'Usuario creado correctamente. Bienvenido {usuario} :D !!'}
+            return render(request,"inicio.html", context=context)
+        else:
+            context = {'mensaje': 'No se pudo crear el usuario'}
+            return render(request,"inicio.html", context=context)
+
+#---------------Editar-----------------
+class Perfil_editar_views(UpdateView):
+    model = Sesion_perfil
+    template_name = "editar_perfil.html"
+    form_class = Perfil_editar
+    def get_success_url(self):
+        return reverse('Inicio')
